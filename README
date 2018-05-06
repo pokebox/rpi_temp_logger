@@ -1,7 +1,21 @@
-Raspberry Pi Temperature Logger
+树莓派温度记录器
 ===============================
 
-This repo contains code for a Raspberry Pi temperature logger which uses SQLite to store data read from a DS18B20 sensor.  You can see more details here:
+这个分支包含树莓派温度记录器的代码，记录器使用SQLite3存储从DS18B20传感器读取到的数据。你可以在这里找到更多细节：
 http://raspberrywebserver.com/cgiscripting/rpi-temperature-logger/building-an-sqlite-temperature-logger.html
 
-In webgui.py, there are several lines that contain hardcoded dates so that you can use the script with the sample database provided.  There is an equivalent version of each of these lines that uses 'now' instead of a hardcoded timestamp.  If you want to view data you've collected yourself, you should uncomment the lines that use 'now', and comment out the lines that have a hardocded date. See webgui.py, lines 45, 117, 122, 127 and 148.
+如果你想查看代码示例，在webgui.py中，有几行被注释的代码包含了固定的日期，以便您可以在提供的示例数据库中使用该脚本。
+如果您想要查看自己收集的数据，则保持现状，然后运行monitor.py。如果你想要查看示例，请修改webgui.py中第41,110,115,120和139行。
+
+现在的webgui.py使用
+http://www.chartjs.org/samples/latest
+的图表，webgui_new.py使用
+https://www.highcharts.com/demo
+的图表。
+
+如果你没有安装SQLite3，请使用sudo apt install sqlite3进行安装
+要让这个代码能运行，你还需要一个网页服务器，如apache，nginx。
+关于apache使用cgi来运行这个脚本，可以在上面的第一个链接找到更多细节。
+如果你和我一样喜欢使用nginx，请参考
+https://www.nginx.com/resources/wiki/start/topics/examples/fcgiwrap/
+来配置你的nginx服务。
